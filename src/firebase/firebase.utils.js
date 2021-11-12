@@ -1,6 +1,8 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
+// import firebase from 'firebase/app'
+// import 'firebase/firestore'
+// import 'firebase/auth'
+import firebase from "firebase/compat"
+
 
 
 const config = {
@@ -12,10 +14,11 @@ const config = {
     appId: "1:3842718601:web:ca086cb352e0aa62e4ff58",
     measurementId: "G-1MX4Z7XVZS"
 };
-firebase.initializeApp(config)
+const app = firebase.initializeApp(config)
+    // firebase.initializeApp(config)
 
-export const auth = firebase.auth()
-export const firestore = firestore.firestore()
+export const auth = app.auth()
+export const firestore = app.firestore()
 
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ prompt: 'select_account' })
